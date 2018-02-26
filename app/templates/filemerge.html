@@ -1,0 +1,37 @@
+
+
+<div id = "MergeFile">
+        <form id="filemerge" class="wrapper" action="/filemerge"
+        method="POST" enctype="multipart/form-data">
+        <div class= "form-item">
+            <!--<div hidden>
+                <input name="emp_name" type="text" value="">
+            </div>-->
+            <div class="form-item-attribute">
+                <label>Select CSV File for merge:</label>
+            </div>
+            <div class="form-item-value">
+                <input type="file" name="csvfile" id="csv_file" />
+            </div>
+            <div class="form-item-attribute">
+                <label>Select Excel File for merge:</label>
+            </div>
+            <div class="form-item-value">
+                <input type="file" name="excelfile" id="excel_file" />
+            </div>
+            <!--<div class="form-item-value">
+                <lable>(Maximum File size is 2MB)</lable>
+            </div>-->
+
+            <input type=submit value="Merge File">
+        </div>
+        </form>
+    {{ out_message }}
+    {% if out_message %}
+            <form action="/downloadfile" method="POST" >
+                <input type="hidden" name="excel_filename" value="{{ excel_filename }}"/>
+                <input type=submit value="File Download">
+
+        </form>
+    {% endif %}
+</div>

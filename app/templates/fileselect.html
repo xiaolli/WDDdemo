@@ -1,0 +1,24 @@
+
+
+<div id = "selectFile">
+        <form id="upload" class="wrapper" action="/select"
+        method="POST" enctype="multipart/form-data">
+        <div class= "form-item">
+            <!--<div hidden>
+                <input name="emp_name" type="text" value="">
+            </div>-->
+            <div class="form-item-attribute">
+                <label>Select Exlce File:</label>
+            </div>
+            <div class="form-item-value">
+                <input type="file" name="excelfile" id="csv_file" />
+            </div>
+            <!--<div class="form-item-value">
+                <lable>(Maximum File size is 2MB)</lable>
+            </div>-->
+
+            <input type=submit value=Upload>
+        </div>
+        </form>
+    <a href="/filemerge">Go to Merge STEP</a>
+</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        {{ out_message }}
+        <form action="/analysis" method="POST" >
+                <input type="hidden" name="csvfile" value="{{ csvfile }}"/>
+                <input type=submit value="Analysis to CSV">
+
+        </form>
+    </pre>
+    </div>
+    {{ data_head.to_html(classes="table table-striped") | safe}}
+    <tr>......</tr>
+    {{ data_tail.to_html(classes="table table-striped") | safe}}
+
+</body>
+</html>
