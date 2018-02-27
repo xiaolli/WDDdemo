@@ -3,7 +3,10 @@ from app import app
 from pandas import Series,DataFrame
 from app.moduler.readfile import read_file,read_csv_file
 import numpy as np
-import xlwings as xw
+import xlrd
+from xlutils.copy import copy
+from xlwt import Style
+import xlwt
 import time
 #import time
 
@@ -87,27 +90,23 @@ def data_process2(excel_file_url,csv_file_url):
 
     # ================================================
 
-    ap = xw.App(visible=True, add_book=False)
-    #excel_file_url
-    #wb = ap.books.open(r"C:\WDD\TEST\LincRNA.xlsx")
-    wb = ap.books.open(excel_file_url)
-    #sht = wb.sheets[0]
-    sht = wb.sheets['Sheet1']
+    def writeExcel(row, col, str, styl=Style.default_style):
+        ws.write(row, col, str, styl)
+
+    #rb = xlrd.open_workbook("C:\\WDD\\input\\LincRNA.xls", formatting_info=True)
+    rb = xlrd.open_workbook(excel_file_url, formatting_info=True)
+    wb = copy(rb)
+    ws = wb.get_sheet(0)
+
     row_size = dfOLD.iloc[:, 0].size
     for i_index in range(0, row_size):
         if dfOLD.iloc[i_index]['gene name'] in dfWDD['User entity name'].values:
-            aaa = 'B' + str(i_index + 2)
-            rng = sht.range(aaa)
-            rng.color = (255, 242, 204)
-        else:
-            #        set1 = set(cutDF.loc[i_index])
-            #        set2 = set(dfWDD['User entity name'])
-            if set(cutDF.loc[i_index]) & set(dfWDD['User entity name'].values):
-                aaa = 'B' + str(i_index + 2)
-                rng = sht.range(aaa)
-                rng.color = (255, 242, 204)
-    wb.save()
-    wb.close()
-    ap.quit()
+            style = xlwt.easyxf("font: name Arial;"
+                                "pattern: pattern solid, fore_colour gold;")
+            writeExcel(i_index + 1, 1, dfOLD.iloc[i_index]['gene name'], style)
+
+    wb.save(excel_file_url)
+
 
     return 'Merge is completed!!!'
+
