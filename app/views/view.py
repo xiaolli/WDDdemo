@@ -1,14 +1,9 @@
 from app import app
 import config
 from flask import request,send_from_directory,url_for,render_template,send_file,make_response,abort
-from werkzeug.utils import secure_filename
-import os,json
-from xlutils.copy import copy
-from xlutils3.copy import copy
-from app.moduler.readfile import read_file
+import os
 from app.controller.dataprocess import data_process1,data_process2
-import mimetypes,logging
-import utils
+
 
 #设定配置
 app.config['UPLOAD_FOLDER'] = config.UPLOAD_FOLDER

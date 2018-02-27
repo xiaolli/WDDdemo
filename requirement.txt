@@ -2,4 +2,5 @@ flask
 pandas
 xlwt
 xlrd
-xlutils
+numpy
+xlwings
