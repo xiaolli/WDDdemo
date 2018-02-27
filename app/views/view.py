@@ -4,7 +4,6 @@ from flask import request,send_from_directory,url_for,render_template,send_file,
 import os
 from app.controller.dataprocess import data_process1,data_process2
 
-
 #设定配置
 app.config['UPLOAD_FOLDER'] = config.UPLOAD_FOLDER
 app.config['DOWNLOAD_FOLDER'] = config.DOWNLOAD_FOLDER
@@ -63,6 +62,13 @@ def xlsfilelist():
                                data_tail = data_tail,
                                out_message =out_message,
                                csvfile =csv_file_url)
+    else:
+        data_head = None
+        data_tail = None
+        data_total_count = None
+        out_message = None
+        response_html = 'fileselect.html'
+        return render_template(response_html)
 
 @app.route('/analysis', methods=['GET','POST'])
 def analysis():

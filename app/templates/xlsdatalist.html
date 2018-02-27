@@ -2,21 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>WDD Enhancement Tool Demo</title>
 </head>
+
 <body>
-    <div>
-        {{ out_message }}
-        <form action="/analysis" method="POST" >
+<a href="/select">Return </a>
+    {% if out_message %}
+        <div>
+
+            {{ out_message }}
+            <form action="/analysis" method="POST" >
                 <input type="hidden" name="csvfile" value="{{ csvfile }}"/>
                 <input type=submit value="Analysis to CSV">
 
-        </form>
-    </pre>
-    </div>
-    {{ data_head.to_html(classes="table table-striped") | safe}}
-    <tr>......</tr>
-    {{ data_tail.to_html(classes="table table-striped") | safe}}
+            </form>
+
+        </pre>
+        </div>
+        {{ data_head.to_html(classes="table table-striped") | safe}}
+        <tr>......</tr>
+        {{ data_tail.to_html(classes="table table-striped") | safe}}
+    {% endif %}
 
 </body>
 </html>

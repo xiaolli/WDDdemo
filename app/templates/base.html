@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <title>WDD Enhancement Tool Demo</title>
     <!--link href='http://fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'-->
     <style type="text/css">
         * {
@@ -83,12 +83,10 @@
 <body>
 <div class="wrapper">
     <div class="header">
-        <h1>Watson and Python Cognitive Service</h1>
-
-        <p>{{ emp_name }} ..Let's go!! </p>
+        <h1>WDD Tool Demo</h1>
     </div>
     <div class="main-content">
-        <h2>Main Content</h2>
+        <h2>Welcome to use!</h2>
 
         {% block content %}
         {% endblock %}
@@ -96,16 +94,12 @@
     </div>
     <div class="aside sidebar">
         <h2>MenuList</h2>
-            <div><a href="/doDatacollecte">&nbsp;DataCollect</a></div>
-            <div><a href="#">&nbsp;DocumentConvertion</a></div>
-            <!--div><a href="main/find?emp_name={{ emp_name }}" methods="GET" >&nbsp;VisualRecognition</a></div-->
-            <div><a href="/findsimilar" >&nbsp;VisualRecognition</a></div>
-            <div><a href="#">&nbsp;SpeechToText</a></div>
-            <div><a href="#">&nbsp;TextToSpeech</a></div>
+            <div><a href="/select">&nbsp;Step1:CSV Create</a></div>
+            <div><a href="/filemerge">&nbsp;Step2:File Merge</a></div>
     </div>
     <div class="footer">
-        <h2>Footer Content</h2>
-        <div><a href="/imageManage">&nbsp;Image Classify manage entry</a></div>
+
+        copyright IBM DL
     </div>
 </div>
 </body>
